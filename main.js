@@ -115,6 +115,6 @@ Vue.component('product', {
 var app = new Vue({
     el:'#app',
     data:{
-        premium:false
+        premium:true
     }
 });
