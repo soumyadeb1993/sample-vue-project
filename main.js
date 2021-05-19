@@ -21,9 +21,7 @@ Vue.component('product', {
                 <p>Shipping : {{shipping}}</p>
             </div>
 
-            <ul>
-                <li v-for="detail in details">{{detail}}</li>
-            </ul>
+            <product_info></product_info>
 
             <div  v-for="(variant, index) in variants" 
                     :key="variant.variantId" 
@@ -47,7 +45,6 @@ Vue.component('product', {
             selectedVariant:0,
             add_disabled:false,
             remove_disabled:true,
-            details:["80% Cutton", "20% polyester", "Gender-neutral"],
             variants:[
                 {
                     variantId:1,
@@ -110,6 +107,19 @@ Vue.component('product', {
             }
         }
     }
+});
+
+Vue.component('product_info', {
+    template: `
+            <ul>
+                <li v-for="detail in details">{{detail}}</li>
+            </ul>`,
+    data(){
+        return {
+            details:["80% Cutton", "20% polyester", "Gender-neutral"],
+        }
+    }
+
 });
 
 var app = new Vue({
